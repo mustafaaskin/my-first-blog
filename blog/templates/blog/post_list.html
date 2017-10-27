@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Sarı Karides Resmi Websitesi</title>
+
+	</head>
+	<body>
+
+		<h1>Selamlar Sarı Karides, Dünyanın En Karizmatik Çiçeği</h1>
+		<p>Hi there!</p>
+    	<p>It works!</p>
+    	
+
+    	<div>
+    		<p>published: 27 10 2017 </p>
+    			{{posts}}
+
+    		<img src="sarikarides1.jpg" alt = "Sarı Karides">  
+
+    	</div>
+
+    	<div> 
+			{{posts}}
+    	</div>
+
+    	<div>{{posts}}
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.yayinlanma_tarihi }}</p>
+        <h1><a href="">{{ post.baslik }}</a></h1>
+        <p>{{ post.yazi|linebreaks }}</p>
+    </div>
+{% endfor %}
+
+	</body>
+    
+</html>
