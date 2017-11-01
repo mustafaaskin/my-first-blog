@@ -25,7 +25,7 @@ SECRET_KEY = ')sl63zawc3#@_qpw5!wx()))_*e=ze_9bh9do9w4667nn%@!!o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sarikarides.pythonanywhere.com','www.pythonanywhere.com','http://127.0.0.1:8000/','127.0.0.1',]
 
 
 # Application definition

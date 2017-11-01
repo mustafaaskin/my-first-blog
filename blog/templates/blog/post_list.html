@@ -1,5 +1,17 @@
+
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
 <html>
 	<head>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    	<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
 		<title>Sarı Karides Resmi Websitesi</title>
 
 	</head>
@@ -8,15 +20,18 @@
 		<h1>Selamlar Sarı Karides, Dünyanın En Karizmatik Çiçeği</h1>
 		<p>Hi there!</p>
     	<p>It works!</p>
+    	<h1> var <h1>
     	
 
     	<div>
     		<p>published: 27 10 2017 </p>
     			{{posts}}
 
-    		<img src="sarikarides1.jpg" alt = "Sarı Karides">  
+    		<img src="..\djangogirls\blog\static\css\sarikarides1.jpg" alt = "Sarı Karides">  
 
     	</div>
+
+    	<h1> <a href="http://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page"> </h1>
 
     	<div> 
 			{{posts}}
@@ -25,14 +40,27 @@
     	<div>{{posts}}
 </div>
 
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.yayinlanma_tarihi }}</p>
-        <h1><a href="">{{ post.baslik }}</a></h1>
-        <p>{{ post.yazi|linebreaks }}</p>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        {{ post.yayinlanma_tarihi }}
+                    </div>
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.baslik }}</a></h1>
+                    <p>{{ post.yazi|linebreaks }}</p>
+                </div>
+            {% endfor %}
+        
+        </div>
     </div>
-{% endfor %}
+</div>
+
+
+</div>
 
 	</body>
     
 </html>
+ {% endblock %}
